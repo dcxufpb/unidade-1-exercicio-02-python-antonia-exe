@@ -37,18 +37,18 @@ def test_exercicio2_tudo_vazio():
     global cnpj
     global inscricao_estadual
     
-    nome_loja = ""
-    logradouro = ""
-    numero = 0
-    complemento = ""
-    bairro = ""
-    municipio = ""
-    estado = ""
-    cep = ""
-    telefone = ""
-    observacao = ""
-    cnpj = ""
-    inscricao_estadual = ""
+    cupom.nome_loja = ""
+    cupom.logradouro = ""
+    cupom.numero = 0
+    cupom.complemento = ""
+    cupom.bairro = ""
+    cupom.municipio = ""
+    cupom.estado = ""
+    cupom.cep = ""
+    cupom.telefone = ""
+    cupom.observacao = ""
+    cupom.cnpj = ""
+    cupom.inscricao_estadual = ""
 
     assert cupom.imprime_dados_loja() == '''
 , 0 
@@ -74,19 +74,26 @@ def test_exercicio2_customizado():
     global inscricao_estadual
     
     # Defina seus próprios valores para as variáveis a seguir
-    nome_loja = ""
-    logradouro = ""
-    numero = 0
-    complemento = ""
-    bairro = ""
-    municipio = ""
-    estado = ""
-    cep = ""
-    telefone = ""
-    observacao = ""
-    cnpj = ""
-    inscricao_estadual = ""
+    cupom.nome_loja = "Magic Box"
+    cupom.logradouro = "Baker St"
+    cupom.numero = 221
+    cupom.complemento = "EDA A24/25/26"
+    cupom.bairro = "Marylebone"
+    cupom.municipio = "Sunnydale"
+    cupom.estado = "CA"
+    cupom.cep = "79297"
+    cupom.telefone = "(213) 70374-7092"
+    cupom.observacao = "Loja TW (BTVS)"
+    cupom.cnpj = "98.650.809/0001-63"
+    cupom.inscricao_estadual = "55021852-1"
 
     #E atualize o texto esperado abaixo
-    assert cupom.imprime_dados_loja() == '''
-'''
+    expected = "Magic Box\n"
+    expected += "Baker St, 221 EDA A24/25/26\n"
+    expected += "Marylebone - Sunnydale - CA\n"
+    expected += "CEP:79297 Tel (213) 70374-7092\n"
+    expected += "Loja TW (BTVS)\n"
+    expected += "CNPJ: 98.650.809/0001-63\n"
+    expected += "IE: 55021852-1\n"
+
+    assert cupom.imprime_dados_loja() == expected
